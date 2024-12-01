@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    container_name: swiftpos_web
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    # depends_on:
+    #   - db
+    environment:
+      - DEBUG=1
+      - DB_NAME=postgres
+      - DB_USER=postgres.twbzglrdkpzhutfbnkzv
+      - DB_PASSWORD=NAwFpud5f3RH65aA
+      - DB_HOST=aws-0-ap-southeast-1.pooler.supabase.com
+      - DB_PORT=6543
+      - EMAIL_HOST_USER=akbar.cse47@gmail.com
+      - EMAIL_HOST_PASSWORD=ahsq cgph lxvw hkre
+
+  # db:
+  #   image: postgres:15
+  #   container_name: swiftpos_db
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: user
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_DB: drf_db
+  #   ports:
+  #     - "5432:5432"
